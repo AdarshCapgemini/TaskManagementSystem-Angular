@@ -1,0 +1,27 @@
+
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Notifications</h2>
+    
+    <button class="btn mb-2 btn-outline-info btn-sm" [routerLink]="['/notifications']">view more</button>
+  
+   
+    
+    <table class="table table-striped" >
+      <thead>
+        <!-- <p>Total Notification: {{notificationCount}}</p> -->
+        <tr>
+          <th>ID</th>
+          <th>notifications</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let notification of notifications" >
+          <td>{{ notification.notificationId }}</td>
+          <td>{{ notification.text}}</td>
+          <td>{{ notification.createdAt}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

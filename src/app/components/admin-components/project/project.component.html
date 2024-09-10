@@ -1,0 +1,52 @@
+<div><app-admin-navbar/></div>
+
+<!-- <div>
+    <h2>Ongoing Projects</h2>
+    <ul>
+      <li *ngFor="let project of projects">{{ project.projectName }} - {{ project.description }}</li>
+    </ul>
+  
+    <h2>Create Project</h2>
+    <input type="text" [(ngModel)]="newProject.projectName" placeholder="Project Name">
+    <input type="text" [(ngModel)]="newProject.description" placeholder="Description">
+    <input type="date" [(ngModel)]="newProject.startDate" placeholder="Start Date">
+    <input type="date" [(ngModel)]="newProject.endDate" placeholder="End Date">
+    <button (click)="createProject()">Create</button>
+  
+    <h2>Update Project</h2>
+    <input type="number" [(ngModel)]="projectIdToUpdate" placeholder="Project ID">
+    <input type="text" [(ngModel)]="projectDataToUpdate.projectName" placeholder="Project Name">
+    <input type="text" [(ngModel)]="projectDataToUpdate.description" placeholder="Description">
+    <input type="date" [(ngModel)]="projectDataToUpdate.startDate" placeholder="Start Date">
+    <input type="date" [(ngModel)]="projectDataToUpdate.endDate" placeholder="End Date">
+    <button (click)="updateProject()">Update</button>
+  
+    <h2>Delete Project</h2>
+    <input type="number" [(ngModel)]="projectIdToDelete" placeholder="Project ID">
+    <button (click)="deleteProject()">Delete</button>
+  </div>
+   -->
+   <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        
+        <h3 class="text-center">Projects Assigned</h3>
+        <br>
+        <div class="row">
+        
+            <div class="col" *ngFor="let project of projects">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="project1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{project.projectName}}</h5>
+                      <h6 class="card-text">{{project.projectId}}</h6>
+                      <p class="card-text">{{project.startDate}}&nbsp;&nbsp;&nbsp;&nbsp;{{project.endDate}}</p>
+                      
+                      <!-- <button *ngIf="!doesProjeExistOnTheCart(product.id)" href="#" class="btn btn-primary" (click)="addProductToCart(product)">Add to Cart</button>
+                      <button *ngIf="doesProductExistOnTheCart(product.id)" href="#" class="btn btn-danger" (click)="removeProductFromCart(product.id)" >Remove from  Cart</button> -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+

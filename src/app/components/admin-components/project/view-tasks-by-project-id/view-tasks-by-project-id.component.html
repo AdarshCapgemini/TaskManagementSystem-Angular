@@ -1,0 +1,51 @@
+<div><app-admin-navbar/></div>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Task Assigned</h2>
+
+    <h4>
+      <div>
+        <div style="float: left;">
+          <button class="btn btn-outline-primary" (click)="sortTasksByStatus()">Sort by Status</button>&nbsp;
+          <button class="btn btn-outline-primary" (click)="sortTasksByPriority()">Sort by Priority</button>
+        </div>
+        <div class="" style="float: right;">
+          <input class="search-input" type="text" [(ngModel)]="searchQuery" placeholder="Search tasks..." (input)="filterTasks()"/><button
+            type="submit" class="btn btn-search" (click)="filterTasks()"><i class="bi bi-search"></i></button>
+        </div>
+      </div>
+    </h4>
+   
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Due Date</th>
+          <th>Description</th>
+          <th>Priority</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks" [ngClass]="{ 'pending': task.status === 'Pending' ,
+          'high-priority': task.priority === 'High',
+          'medium-priority': task.priority === 'Medium',
+          'low-priority': task.priority === 'Low'}">
+          <td>{{ task.taskId }}</td>
+          <td>{{ task.taskName }}</td>
+          <td>{{ task.dueDate }}</td>
+          <td>{{ task.description }}</td>
+          <td>
+            <select class="btn btn-outline-dark btn-sm" [(ngModel)]="task.priority" (change)="updateTask(task)">
+              <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+            </select>
+          </td>
+          <td>
+            <select class="btn btn-outline-dark btn-sm" [(ngModel)]="task.status" (change)="updateTask(task)">
+              <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

@@ -1,0 +1,63 @@
+<div><app-admin-navbar/></div>
+
+<div class="container mt-4">
+  <h2 class="text-center mb-4">All Projects</h2>
+  <h4>
+    <div style="float: right;" class="search-container">
+      <input class="search-input" type="text" [(ngModel)]="searchTerm" placeholder="Search Projects.." (input)="filterProjects()"/><button
+      type="submit" class="btn btn-search" (click)="filterProjects()"><i class="bi bi-search"></i></button>
+  </div>
+</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="text-align: center;">PROJECT ID</th>
+        <th style="text-align: center;">PROJECT NAME</th>
+        <th style="text-align: center;">DESCRIPTION</th>
+        <th style="text-align: center;">START DATE</th>
+        <th style="text-align: center;">END DATE</th>
+        <th style="text-align: center;">USER</th>
+        <th style="text-align: center;">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td style="text-align: center;">{{ project.projectId }}</td>
+        <td style="text-align: center;">{{ project.projectName }}</td>
+        <td style="text-align: center;">{{ project.description }}</td>
+        <td style="text-align: center;">{{ project.startDate }}</td>
+        <td style="text-align: center;">{{ project.endDate }}</td>
+        <td style="text-align: center;">{{ project.userId }}</td>
+        <td style="text-align: center;">
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton-{{project.projectId}}" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-gear"></i> Actions
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <a class="dropdown-item" [routerLink]="['/update-project', project.projectId]">
+                  <i class="bi bi-pencil-square"></i> Edit Project
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/add-task-to-project', project.projectId]">
+                  <i class="bi bi-plus-square-fill"></i> Add Task
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/view-tasks-by-projectId', project.projectId]">
+                  <i class="bi bi-eye"></i> View Tasks
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item text-danger" (click)="deleteProject(project.projectId)">
+                  <i class="bi bi-trash"></i> Delete Project
+                </a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

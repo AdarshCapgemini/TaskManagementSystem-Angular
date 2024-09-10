@@ -1,0 +1,9 @@
+
+<div class="container" *ngIf="user" style="height: 8rem; position: relative;" >
+  
+  <h2 class="display-4" style="font-weight: bolder; font-size: large; color: whitesmoke;"><br>    Hello, {{user.fullName}}</h2>
+  <p class="lead" style="font-size: medium; color: whitesmoke;">     username: {{user.userName}}</p>
+  <p class="lead" style="font-size: small; color: whitesmoke;">     email: {{user.email}}</p>
+  <div><a class="btn btn-outline-primary btn-sm" href="#" role="button" style="position: absolute; bottom: 10px; right: 10px;" routerLink="/updateUser/{{user.userId}}" >Update Profile</a></div>
+  <!-- <hr class="my-4"> -->
+</div>

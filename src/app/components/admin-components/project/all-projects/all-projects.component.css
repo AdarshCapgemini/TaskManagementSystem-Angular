@@ -1,0 +1,105 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+ 
+.table thead th {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+ 
+.table tbody tr {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+ 
+/* .table tbody tr:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f5f5f5;
+    z-index: -1;
+} */
+ 
+.table tbody td {
+    padding: 10px;
+    border-top: none;
+}
+ 
+.table tbody tr:first-child td {
+    border-top: none;
+}
+
+/* Ensure the dropdown is positioned correctly */
+.dropdown {
+    position: relative;
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Position it directly below the button */
+    left: 0;
+    z-index: 1050; /* Ensure it is on top */
+    background-color: #ffffff; /* Solid background color */
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Optional: border for distinction */
+    border-radius: .25rem; /* Optional: rounded corners */
+    padding: .5rem 0; /* Optional: padding for spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+}
+
+/* Style individual dropdown items */
+.dropdown-item {
+    padding: .25rem 1.5rem;
+    font-size: .875rem;
+    color: #212529; /* Text color */
+}
+
+/* Optional: Highlight on hover */
+.dropdown-item:hover {
+    background-color: #f8f9fa; /* Slightly different background on hover */
+    color: #16181b; /* Text color on hover */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px; /* Adjust based on your layout */
+  }
+   
+  /* Style for the search input */
+  .search-input {
+    flex: 1; /* Takes up remaining space */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #5b5a5a;
+    border-radius: 4px;
+    margin-right: 10px; /* Space between input and button */
+    box-shadow: 0 2px 4px rgba(66, 63, 63, 0.1);
+  }
+   
+  /* Style for the search button */
+  .btn-search {
+    background-color: #486380; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+   
+  .btn-search:hover {
+    background-color: #4b7fb7; /* Darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+   
+  .btn-search i {
+    font-size: 18px;
+  }

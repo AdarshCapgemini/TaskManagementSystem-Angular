@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-fluid {
+    height: 100%;
+    padding: 0;
+  }
+  
+  .row {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .col-auto {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 56px; /* Adjust this value based on the height of your header */
+    bottom: 0;
+    overflow-y: auto;
+  }
+  
+  .col {
+    margin-left: 20%; /* Adjust this value based on the width of your sidebar */
+    margin-top: 56px; /* Adjust this value based on the height of your header */
+    padding: 0;
+  }
+  
+  app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  

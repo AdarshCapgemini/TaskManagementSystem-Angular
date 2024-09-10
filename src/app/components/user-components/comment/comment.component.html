@@ -1,0 +1,30 @@
+<app-header/>
+<div class="animated-background"></div>
+<div class="overlay"></div>
+<div class="container ">
+  <br>
+    <h2 class="text-center mb-4" style="color: whitesmoke;">Comments for Task Id:{{taskId}}</h2>
+    <h4><button type="button" class="btn btn-info" routerLink="/postComment/{{taskId}}"><i class="bi bi-file-earmark-plus-fill"></i></button></h4>
+    
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Comments</th>
+          <th>Date Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let comment of comments" >
+          <td>{{ comment.commentId }}</td>
+          <td>{{ comment.text}} </td>
+          <td>{{ comment.createdAt}}</td>
+          
+          
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  

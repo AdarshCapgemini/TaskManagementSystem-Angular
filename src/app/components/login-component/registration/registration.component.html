@@ -1,0 +1,125 @@
+<div>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="content">
+      <div class="row d-flex justify-content-center align-items-center h-100" style="margin: 0px !important;">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0" style="background-image: url('texture.jpg');">
+              <div class="col-xl-6 d-flex justify-content-center align-items-center">
+                <img src="logo.png" style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: 400px; width: 380px;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-3 text-black">
+                  <br>
+                  <br>
+                  <h3 class="mb-3 text-uppercase">User Registration</h3>
+                  <form [formGroup]="userRegisterForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col-md-6 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <input type="text" id="userId" class="form-control form-control-sm" formControlName="userId" readonly/>
+                          <label class="form-label" for="userId" >User ID</label>
+                          <div class="error" *ngIf="userRegisterForm.get('userId')?.errors?.['required'] && userRegisterForm.get('userId')?.touched">
+                            User ID is Required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <input type="text" id="userName" class="form-control form-control-sm" formControlName="userName" />
+                          <label class="form-label" for="userName">Username</label>
+                          <div class="error" *ngIf="userRegisterForm.get('userName')?.errors?.['required'] && userRegisterForm.get('userName')?.touched">
+                            Username is Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-2">
+                      <input type="text" id="fullName" class="form-control form-control-sm" formControlName="fullName" />
+                      <label class="form-label" for="fullName">Full Name</label>
+                      <div class="error" *ngIf="userRegisterForm.get('fullName')?.errors?.['required'] && userRegisterForm.get('fullName')?.touched">
+                        Full Name is Required
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password:</label>
+                      <div class="input-group">
+                        <input id="password" [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Create a password" />
+                        <span class="input-group-text">
+                          <input type="checkbox" (change)="toggleShowPassword('password')" /> Show
+                        </span>
+                      </div>
+                      <div *ngIf="userRegisterForm.get('password')?.invalid && userRegisterForm.get('password')?.touched" class="text-danger mt-2">
+                        <div *ngIf="userRegisterForm.get('password')?.errors?.['required']">Password is required.</div>
+                        <div *ngIf="userRegisterForm.get('password')?.errors?.['pattern']">Password must contain one capital letter, one small letter, and a special character, and be 6-12 characters long.</div>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                      <div class="input-group">
+                        <input id="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" class="form-control" formControlName="confirmPassword" placeholder="Confirm your password" />
+                        <span class="input-group-text">
+                          <input type="checkbox" (change)="toggleShowPassword('confirmPassword')" /> Show
+                        </span>
+                      </div>
+                      <div *ngIf="userRegisterForm.get('confirmPassword')?.invalid && userRegisterForm.get('confirmPassword')?.touched" class="text-danger mt-2">
+                        <div *ngIf="userRegisterForm.get('confirmPassword')?.errors?.['required']">Confirmation is required.</div>
+                        <div *ngIf="userRegisterForm.hasError('passwordMismatch') && userRegisterForm.get('confirmPassword')?.touched">Passwords do not match.</div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="email" id="email" class="form-control form-control-sm" formControlName="email" />
+                        <label class="form-label" for="email">Email</label>
+                        <div class="error" *ngIf="userRegisterForm.get('email')?.errors?.['required'] && userRegisterForm.get('email')?.touched">
+                          Email is Required
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center pt-2">
+                      <button type="submit" class="btn btn-warning btn-lg ms-2 animate-button">Register</button>
+                      <!-- Status message -->
+                      <span class="ms-3" [ngClass]="{'text-success': message.includes('successful'), 'text-danger': message.includes('wrong')}">{{ message }}</span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+ 
+<style>
+  .animate-button:active {
+    animation: click-animation 0.3s ease-in-out;
+  }
+ 
+  @keyframes click-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+ 
+  .btn-lg {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.25rem;
+  }
+ 
+  .text-success {
+    color: green;
+  }
+ 
+  .text-danger {
+    color: red;
+  }
+</style>

@@ -1,0 +1,50 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">All Users lists</h2>
+    
+    <button class="btn mb-2 btn-outline-info btn-sm" [routerLink]="['/all-users']">view more</button>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="text-align: center;">USER ID</th>
+          <th style="text-align: center;">FULL NAME</th>
+          <th style="text-align: center;">EMAIL</th>
+          <!-- <th style="text-align: center;">ROLE</th> -->
+          <!-- <th style="text-align: center;">ACTIONS</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td style="text-align: center;">{{ user.userId }}</td>
+          <td style="text-align: center;">{{ user.fullName }}</td>
+          <td style="text-align: center;">{{ user.email }}</td>
+          <!-- <td style="text-align: center;">{{ user.roleName }}</td> -->
+          <!-- <td style="text-align: center;">
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i> Actions
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/add-userrole', user.userId]">
+                    <i class="bi bi-plus-square-fill"></i> Add Role
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/update-user', user.userId]">
+                    <i class="bi bi-pencil-square"></i> Edit User
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" [routerLink]="['/revoke-role', user.userId]">
+                    <i class="bi bi-trash"></i> Remove Role
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

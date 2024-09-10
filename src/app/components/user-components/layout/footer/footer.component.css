@@ -1,0 +1,63 @@
+.footer {
+    background-color: transparent;
+    color: whitesmoke;
+    padding: 10px 0; /* Reduce padding to make it thinner */
+  }
+  
+  .text-white-smoke {
+    color: whitesmoke;
+  }
+  
+  .footer .nav-link {
+    color: whitesmoke;
+  }
+  
+  .footer .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .footer img {
+    max-height: 130px; /* Adjust image height to make it thinner */
+  }
+  
+  .footer h5 {
+    font-size: 1rem; /* Reduce font size */
+    margin: 5px 0; /* Reduce margin */
+  }
+  
+  .footer .nav-item {
+    margin-bottom: 5px; /* Reduce margin between nav items */
+  }
+  
+  .footer .btn {
+    padding: 10px 10px; /* Reduce button padding */
+    font-size: 0.875rem; /* Reduce button font size */
+  }
+  
+  .footer small {
+    font-size: 0.75rem; /* Reduce footer text size */
+  }
+  
+  .store-logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 5px 0; /* Equal spacing between logos */
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  

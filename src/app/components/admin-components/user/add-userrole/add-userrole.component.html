@@ -1,0 +1,23 @@
+<div><app-admin-navbar/></div>
+<div class="container">
+  <div class="box">
+    <h2>Add User Role To User</h2>
+    <form [formGroup]="userRoleForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="userRole">User Role</label>
+        <select id="userRole" formControlName="userRole" required class="form-control">
+          <option *ngFor="let role of userRoles" [value]="role.userRoleId">{{ role.roleName }}</option>
+        </select>
+        <div class="text-danger" *ngIf="userRoleForm.get('userRole')?.errors?.['required'] && userRoleForm.get('userRole')?.touched">
+          User Role is required
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="userRoleForm.invalid">Assign Role</button>
+     
+      <div class="mt-2">
+        <div class="alert alert-success" *ngIf="successMessage">{{ successMessage }}</div>
+        <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      </div>
+    </form>
+  </div>
+</div>

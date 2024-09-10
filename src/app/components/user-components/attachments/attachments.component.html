@@ -1,0 +1,30 @@
+<div><app-header/></div>
+<div class="animated-background"></div>
+<div class="overlay"></div>
+<div class="container">
+  <br>
+    <h2 class="text-center mb-4" style="color: whitesmoke;">Attachments</h2>
+    <button type="button" class="btn btn-info"><i class="bi bi-file-earmark-plus-fill" routerLink="/postAttachments/{{taskId}}"></i></button>
+    
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>File Name</th>
+          <th>File Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attachment of attachments" >
+          <td>{{ attachment.attachmentId }}</td>
+          <td>{{ attachment.fileName}}</td>
+          <td>{{ attachment.filePath}}</td>
+          
+          
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  

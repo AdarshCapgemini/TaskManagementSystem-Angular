@@ -1,0 +1,59 @@
+<div><app-admin-navbar/></div>
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center mb-4">Update Project</h2>
+    <div>
+        <label for="projectId">Project ID:</label>
+        <input id="projectId" formControlName="projectId" type="text" readonly>
+        <div *ngIf="projectForm.get('projectId')?.invalid && projectForm.get('projectId')?.touched">
+            Project ID is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="projectName">Project Name:</label>
+        <input id="projectName" formControlName="projectName" type="text"  >
+        <div *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched">
+            Project Name is required, must be between 1 and 100 characters.
+        </div>
+    </div>
+
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+        <div *ngIf="projectForm.get('description')?.invalid && projectForm.get('description')?.touched">
+            Description is required and cannot exceed 500 characters.
+        </div>
+    </div>
+
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input id="startDate" formControlName="startDate" type="date">
+        <div *ngIf="projectForm.get('startDate')?.invalid && projectForm.get('startDate')?.touched">
+            Start Date is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="endDate">End Date:</label>
+        <input id="endDate" formControlName="endDate" type="date" required>
+        <div *ngIf="projectForm.get('endDate')?.invalid && projectForm.get('endDate')?.touched">
+            End Date is required.
+        </div>
+    </div>
+    <div>
+        <label for="userId">Assign this Project To User ID:</label>
+        <input id="userId" formControlName="userId" type="text" >
+        <div *ngIf="projectForm.get('userId')?.invalid && projectForm.get('userId')?.touched">
+            User ID is required.
+        </div>
+    </div>
+    <div class="submit-container">
+        <button type="submit">Submit</button>
+        <span *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
+        </span>
+        <span *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+        </span>
+    </div>
+</form>

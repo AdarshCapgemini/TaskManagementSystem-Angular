@@ -1,0 +1,27 @@
+<div><app-admin-navbar/></div>
+<!-- add-new-userrole.component.html -->
+<div class="container">
+    <div class="box">
+      <h2>Create User Role</h2>
+      <form [formGroup]="userRoleForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="userRoleId">Role ID</label>
+          <input type="text" id="userRoleId" class="form-control form-control-sm, readonly-field" formControlName="userRoleId" readonly/>
+          <div class="text-danger" *ngIf="userRoleForm.get('userRoleId')?.errors?.['required'] && userRoleForm.get('userRoleId')?.touched">
+            Role ID is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="roleName">Role Name</label>
+          <input type="text" id="roleName" formControlName="roleName" required class="form-control">
+          <div class="text-danger" *ngIf="userRoleForm.get('roleName')?.errors?.['required'] && userRoleForm.get('roleName')?.touched">
+            Role Name is required
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="userRoleForm.invalid">Create Role</button>
+        <div *ngIf="successMessage" class="text-success btn btn-outline-success btn-lg">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="text-danger btn btn-outline-danger btn-lg">{{ errorMessage }}</div>
+      </form>
+    </div>
+  </div>
+  

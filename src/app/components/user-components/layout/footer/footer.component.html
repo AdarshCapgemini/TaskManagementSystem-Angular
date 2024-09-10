@@ -1,0 +1,72 @@
+<div class="footer bg-transparent text-white-smoke">
+  <div class="container">
+    <div class="row">
+      <!-- Company Logo and Name (Full Space) -->
+      <div class="col-md-3 mb-3">
+        <img src="logo.png" alt="Company Logo" class="img-fluid">
+        <h3 style="color: rgb(232, 178, 16);">&nbsp;&nbsp;Taskify</h3>
+      </div>
+      <!-- Get From Section -->
+      <div class="col-md-3 mb-3">
+        <h5>&nbsp;Get It From</h5>
+        <div class="d-flex flex-column align-items-start">
+          <a href="https://play.google.com/store" target="_blank">
+            <img src="play-store.webp" alt="Google Play Store" class="img-fluid store-logo">
+          </a>
+          <a href="https://www.apple.com/app-store/" target="_blank">
+            <img src="app-store.png" alt="App Store" class="img-fluid store-logo">
+          </a>
+          <a href="https://www.microsoft.com/store/apps" target="_blank">
+            <img src="MicrosoftStore.png" alt="Windows Store" class="img-fluid store-logo">
+          </a>
+        </div>
+      </div>
+      <!-- Toggle Section -->
+      <div class="col-md-3 mb-2">
+        <h5>&nbsp;&nbsp;&nbsp;&nbsp;Toggle</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a href="#" class="nav-link text-white-smoke" (click)="logout()"
+              style="color: red;">Logout</a></li>
+          <li *ngIf="visible()" class="nav-item"><a href="#" class="nav-link text-white-smoke"
+              [routerLink]="['/allTasks']">All Tasks</a></li>
+          <li *ngIf="!visible()" class="nav-item"><a href="#" class="nav-link text-white-smoke"
+              [routerLink]="['/tasks']">My Tasks</a></li>
+          <li *ngIf="visible()" class="nav-item"><a href="#" class="nav-link text-white-smoke"
+              [routerLink]="['/all-projects']">All Projects</a></li>
+          <li *ngIf="!visible()" class="nav-item"><a href="#" class="nav-link text-white-smoke"
+              [routerLink]="['/userProjects']">My Projects</a></li>
+        </ul>
+      </div>
+      <!-- Buttons Section -->
+      <div class="col-md-3 mb-2">
+        <div class="d-flex flex-column">
+          <button class="btn mb-2" [ngClass]="{'btn-primary': !isSubscribed, 'btn-success': isSubscribed}"
+            (click)="toggleSubscribe()">
+            Subscribe
+          </button>
+          <button class="btn mb-2" [ngClass]="{'btn-secondary': !isNotified, 'btn-warning': isNotified}"
+            (click)="toggleNotification()">
+            Get Notification
+          </button>
+          <button *ngIf="visible()" class="btn btn-outline-secondary btn-sm" type="link" style="margin-left: 15px; color: whitesmoke;"
+            [routerLink]="['/userDashboard']">
+            use as user
+            <i class="bi bi-person-bounding-box"></i>
+          </button>
+          <!-- <button *ngIf="!visible()" class="btn btn-outline-light mb-2" type="button" style="margin-left: 15px;"
+          [routerLink]="['/admin-dashboard']">
+          use as admin 
+          <i class="bi bi-person-workspace"></i>
+          </button> -->
+        </div>
+      </div>
+
+    </div>
+    <!-- Footer Text -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <small>2024. Company: Taskify Pvt. Ltd.</small>
+      </div>
+    </div>
+  </div>
+</div>

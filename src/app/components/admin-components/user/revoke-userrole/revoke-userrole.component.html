@@ -1,0 +1,25 @@
+<div><app-admin-navbar/></div>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Remove Role</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="text-align: center;">USERROLE ID</th>
+          <th style="text-align: center;">ROLE NAME</th>
+          <th style="text-align: center;">ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userRole of userRoles">
+          <td style="text-align: center;">{{ userRole.userRoleId }}</td>
+          <td style="text-align: center;">{{ userRole.roleName }}</td>
+          <td style="text-align: center;">
+            <button class="btn btn-danger" (click)="revokeUserRoleFromUser(userRole.userRoleId,userId)">
+              <i class="bi bi-trash"></i> Revoke Role
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

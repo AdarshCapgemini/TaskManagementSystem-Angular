@@ -1,0 +1,81 @@
+<div><app-admin-navbar/></div>
+<form [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center mb-4">Add New Task</h2>
+    <div>
+        <label for="taskId">Task ID:</label>
+        <input id="taskId" formControlName="taskId" type="text" class="form-control form-control-sm" formControlName="taskId" readonly/>
+        <div *ngIf="addTaskForm.get('taskId')?.invalid && addTaskForm.get('taskId')?.touched">
+            Task ID is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="taskName">Task Name:</label>
+        <input id="taskName" formControlName="taskName" type="text">
+        <div *ngIf="addTaskForm.get('taskName')?.invalid && addTaskForm.get('taskName')?.touched">
+            Task Name is required, must be between 1 and 100 characters.
+        </div>
+    </div>
+
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description"></textarea>
+        <div *ngIf="addTaskForm.get('description')?.invalid && addTaskForm.get('description')?.touched">
+            Description is required and cannot exceed 500 characters.
+        </div>
+    </div>
+
+    <div>
+        <label for="dueDate">Due Date:</label>
+        <input id="dueDate" formControlName="dueDate" type="date">
+        <div *ngIf="addTaskForm.get('dueDate')?.invalid && addTaskForm.get('dueDate')?.touched">
+            Due Date is required.
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <label for="priority">Priority:</label>
+        <input id="priority" formControlName="priority" type="text" readonly (click)="togglePriorityDropdown()">
+        <div class="dropdown-content" [class.show]="priorityDropdownOpen">
+            <div (click)="setPriority('Low')">Low</div>
+            <div (click)="setPriority('High')">High</div>
+            <div (click)="setPriority('Medium')">Medium</div>
+        </div>
+        <div *ngIf="addTaskForm.get('priority')?.invalid && addTaskForm.get('priority')?.touched">
+            Priority is required.
+        </div>
+    </div>
+
+    <div class="dropdown" style="margin-top: 20px;">
+        <label for="status">Status:</label>
+        <input id="status" formControlName="status" type="text" readonly (click)="toggleStatusDropdown()">
+        <div class="dropdown-content" [class.show]="statusDropdownOpen">
+            <div (click)="setStatus('In Progress')">In Progress</div>
+            <div (click)="setStatus('Pending')">Pending</div>
+            <div (click)="setStatus('Completed')">Completed</div>
+        </div>
+        <div *ngIf="addTaskForm.get('status')?.invalid && addTaskForm.get('status')?.touched">
+            Status is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="projectId">Assigned To ProjectID:</label>
+        <input id="projectId" formControlName="projectId" type="text" readonly>
+    </div>
+
+    <div>
+        <label for="userId">Assigned To UserID:</label>
+        <input id="userId" formControlName="userId" type="text" readonly>
+    </div>
+
+    <div class="submit-container">
+        <button type="submit">Submit</button>
+        <span *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
+        </span>
+        <span *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+        </span>
+    </div>
+</form>

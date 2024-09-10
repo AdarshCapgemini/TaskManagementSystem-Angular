@@ -1,0 +1,135 @@
+.container {
+  margin-top: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1e597777, #8ab0cf8d); /* Gradient background */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+  background: linear-gradient(135deg, #1e597777, #8ab0cf8d); /* Lighter gradient background */
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(252, 215, 215); /* Dark blue color for the title */
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #ffffff; /* Medium blue color for the text */
+}
+
+.btn-primary {
+  background-color: #1976d2; /* Primary blue button */
+  border-color: #1976d2;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0d47a1; /* Darker blue on hover */
+  border-color: #0d47a1;
+}
+
+.btn-outline-success {
+  margin-top: 10px;
+}
+
+.card-footer {
+  background: linear-gradient(135deg, #BBDEFB, #E3F2FD); /* Light blue gradient background for the footer */
+}
+
+/* ******** */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Darken the background for better readability */
+  z-index: 0;
+}
+
+
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../../../../../public/bg2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  animation: moveBackground 35s linear infinite;
+}
+
+
+.container {
+  position: relative;
+  z-index: 1;
+  opacity: 90%;
+}
+
+table {
+  opacity: 85%;
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px; /* Adjust based on your layout */
+}
+ 
+/* Style for the search input */
+.search-input {
+  flex: 1; /* Takes up remaining space */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px; /* Space between input and button */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Style for the search button */
+.btn-search {
+  background-color: #486380; /* Bootstrap primary color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+ 
+.btn-search:hover {
+  background-color: #2a3f56; /* Darker shade on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+ 
+.btn-search i {
+  font-size: 18px;
+}

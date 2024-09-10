@@ -1,0 +1,46 @@
+<app-header></app-header>
+<form [formGroup]="attachmentForm" (ngSubmit)="onSubmit()" >
+ 
+   
+    <h1>Upload Attachment</h1>
+    <div class="mt-4">
+            <label for="file">Choose file</label>
+            <input type="file" id="file" name="file" class="form-control" (change)="onFileChange($event)">
+ 
+    </div>
+ 
+    <div>
+        <label for="attachmentId">Attachment Id:</label>
+        <input id="attachmentId" formControlName="attachmentId" type="text" class="form-control form-control-sm" formControlName="attachmentId" readonly>
+        <div *ngIf="attachmentForm.get('attachmentId')?.invalid && attachmentForm.get('attachmentId')?.touched">
+                 Attachment ID is required.
+        </div>
+    </div>
+    <div>
+        <label for="fileName">File Name:</label>
+        <input id="fileName" formControlName="fileName" type="text">
+        <div *ngIf="attachmentForm.get('fileName')?.invalid && attachmentForm.get('fileName')?.touched">
+                 File Name is required
+        </div>
+    </div>
+    <div>
+        <label for="filePath">File Path:</label>
+        <input id="filePath" formControlName="filePath" type="text">
+        <div *ngIf="attachmentForm.get('filePath')?.invalid && attachmentForm.get('filePath')?.touched">
+                 File Path is required
+        </div>
+    </div>
+    <div>
+        <label for="taskId">task Id:</label>
+        <input id="taskId" formControlName="taskId" type="text" readonly>
+        <div *ngIf="attachmentForm.get('taskId')?.invalid && attachmentForm.get('taskId')?.touched">
+                 task ID is required.
+        </div>
+    </div>
+    
+    <div>
+    <button>Submit</button>
+    <div *ngIf="successMessage" class="text-success btn btn-outline-success btn-lg">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="text-danger btn btn-outline-danger btn-lg">{{ errorMessage }}</div>
+</div>
+</form>

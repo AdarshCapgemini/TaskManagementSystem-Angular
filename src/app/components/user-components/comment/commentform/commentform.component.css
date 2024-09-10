@@ -1,0 +1,73 @@
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+ 
+/* Styling for each form group */
+div {
+    margin-bottom: 15px;
+}
+ 
+/* Label styling */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+ 
+/* Input and textarea styling */
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+ 
+/* Textarea specific styling */
+textarea {
+    resize: vertical; /* Allows the textarea to be resizable vertically */
+    min-height: 100px;
+}
+ 
+/* Error message styling */
+div div {
+    color: #d9534f; /* Bootstrap danger color */
+    font-size: 14px;
+    margin-top: 5px;
+}
+/* Button styling */
+button {
+    background-color: #5bc0de; /* Bootstrap info color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+ 
+/* Button hover effect */
+button:hover {
+    background-color: #31b0d5;
+}
+ 
+.submit-container {
+    display: flex;
+    align-items: center;
+  }
+ 
+  .submit-container button {
+    margin-right: 10px;
+  }
+ 
+  .alert {
+    margin-left: 10px;
+  }

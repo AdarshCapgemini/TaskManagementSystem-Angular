@@ -1,0 +1,51 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: #495057;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.pending-work {
+    display: inline;
+}
+
+.dropdown-menu-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: #fff;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: #495057;
+}

@@ -1,0 +1,25 @@
+<div><app-admin-navbar/></div>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Attachments</h2>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attachment of attachments">
+          <td>{{ attachment.attachmentId }}</td>
+          <td>{{ attachment.fileName }}</td>
+          <td>{{ attachment.filePath }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    
+  </div>
+  

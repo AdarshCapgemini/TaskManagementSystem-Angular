@@ -1,0 +1,27 @@
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Attachments</h2>
+    <h4></h4>
+    
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>File Name</th>
+          <th>File Path</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attachment of attachments" >
+          <td>{{ attachment.attachmentId }}</td>
+          <td>{{ attachment.fileName}}</td>
+          <td>{{ attachment.filePath}}</td>
+          
+          <td><button type="button" class="btn btn-info"><i class="bi bi-file-earmark-plus-fill"></i></button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

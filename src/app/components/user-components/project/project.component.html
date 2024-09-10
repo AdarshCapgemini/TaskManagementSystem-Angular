@@ -1,0 +1,50 @@
+<app-header/>
+<div class="animated-background"></div>
+<div class="overlay"></div>
+  <div class="container-fluid">
+    <br>
+    <h3 class="text-center" style="color: whitesmoke;">Projects Assigned</h3>
+    <hr class="my-4">
+    <h4><button type="button" class="btn btn-primary" [routerLink]="['/userProjects/{{userId}}']">
+        Total Projects: <span class="badge badge-dark">{{count}}</span>
+      </button>
+      <a class="" style="float: right;">
+        <input class="search-input" type="text" [(ngModel)]="searchQuery" (input)="filterProjects()"
+          placeholder="Search projects..." /><button type="submit" class="btn btn-search"><i
+            class="bi bi-search"></i></button>
+      </a>
+    </h4>
+
+
+    <br>
+    <div class="row">
+      <br>
+      <div class="col" *ngFor="let project of projects">
+        <div class="card text-center" style="width: 10rem;">
+          <div class="card-header" style="color: rgb(255, 255, 255);">
+            {{project.projectName}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge badge-pill badge-light"
+                style="color: black; right: 0%;">{{project.projectId}}</span></h5>
+            <p class="card-text">
+              {{project.description}}
+            </p>
+            <p class="card-text">{{project.startDate}}&nbsp;&nbsp;&nbsp;&nbsp;{{project.endDate}}</p>
+
+            <a class="btn btn btn-outline-warning btn-sm" style="left: 50%;">
+              Total Tasks {{project.taskcount}}
+            </a>
+
+          </div>
+          <div class="card-footer text-muted">
+
+            <button type="button" class="btn btn-primary btn-sm"
+              (click)="clickGetTasksOfProject(project.projectId)">View
+              More</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

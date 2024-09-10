@@ -1,0 +1,65 @@
+<div><app-admin-navbar /></div>
+<div class="container">
+    <div class="box">
+        <h2>Create User</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="userId">User Id</label>
+                <input type="text" id="userId" class="form-control form-control-sm, readonly-field"
+                    formControlName="userId" readonly />
+                <div class="text-danger"
+                    *ngIf="userForm.get('userId')?.errors?.['required'] && userForm.get('userId')?.touched">
+                    User Id is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" formControlName="fullName" required class="form-control">
+                <div class="text-danger"
+                    *ngIf="userForm.get('fullName')?.errors?.['required'] && userForm.get('fullName')?.touched">
+                    Full Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userName">UserName</label>
+                <input type="text" id="userName" formControlName="userName" required class="form-control">
+                <div class="text-danger"
+                    *ngIf="userForm.get('userName')?.errors?.['required'] && userForm.get('userName')?.touched">
+                    User Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="email" required class="form-control">
+                <div class="text-danger"
+                    *ngIf="userForm.get('email')?.errors?.['required'] && userForm.get('email')?.touched">
+                    Email is required
+                </div>
+                <div class="text-danger"
+                    *ngIf="userForm.get('email')?.errors?.['email'] && userForm.get('email')?.touched">
+                    Email is invalid
+                </div>
+            </div>
+            <div class="form-group password-group">
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" formControlName="password" required class="form-control">
+                    <span class="password-toggle" (click)="togglePasswordVisibility()">
+                        <i class="bi" [ngClass]="isPasswordVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    </span>
+                </div>
+                <div class="text-danger"
+                    *ngIf="userForm.get('password')?.errors?.['required'] && userForm.get('password')?.touched">
+                    Password is required
+                </div>
+                <div class="text-danger"
+                    *ngIf="userForm.get('password')?.errors?.['email'] && userForm.get('password')?.touched">
+                    Password is invalid
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Create User</button>
+            <div *ngIf="successMessage" class="text-success btn btn-outline-success btn-lg">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="text-danger btn btn-outline-danger btn-lg">{{ errorMessage }}</div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Task Assigned</h2>
+    <button class="btn mb-2 btn-outline-info btn-sm" [routerLink]="['/allTasks']">view more</button>
+
+    
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Due Date</th>
+          <th>Description</th>
+          <th>Priority</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.taskId }}</td>
+          <td>{{ task.taskName }}</td>
+          <td>{{ task.dueDate }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.priority }}</td>
+          <td>{{ task.status }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

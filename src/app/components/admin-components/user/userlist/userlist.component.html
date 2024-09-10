@@ -1,0 +1,55 @@
+<div><app-admin-navbar/></div>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">All Users</h2>
+
+    <h4>
+      <div style="float: right;" class="search-container">
+        <input class="search-input" type="text" [(ngModel)]="searchQuery" placeholder="Search Users..." (input)="filterUsers()"/><button
+            type="submit" class="btn btn-search" (click)="filterUsers()"><i class="bi bi-search"></i></button>
+      </div>
+    </h4>
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="text-align: center;">USER ID</th>
+          <th style="text-align: center;">FULL NAME</th>
+          <th style="text-align: center;">EMAIL</th>
+          <th style="text-align: center;">ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td style="text-align: center;">{{ user.userId }}</td>
+          <td style="text-align: center;">{{ user.fullName }}</td>
+          <td style="text-align: center;">{{ user.email }}</td>
+          <td style="text-align: center;">
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i> Actions
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/add-userrole', user.userId]">
+                    <i class="bi bi-plus-square-fill"></i> Add Role
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" [routerLink]="['/update-user', user.userId]">
+                    <i class="bi bi-pencil-square"></i> Edit User
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" (click)="deleteUser(user.userId)">
+                    <i class="bi bi-trash"></i> Delete
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

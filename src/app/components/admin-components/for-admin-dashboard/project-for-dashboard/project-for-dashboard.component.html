@@ -1,0 +1,36 @@
+<div class="container" >
+
+    <h3 class="text-center">Total Projects</h3>
+    <!-- <h4><a type="button" class="btn btn-primary" routerLink="/userProjects">
+        Total Projects: <span class="badge badge-light">{{count}}</span>
+      </a></h4> -->
+      
+      <button class="btn mb-2 btn-outline-info btn-sm" [routerLink]="['/all-projects']">view more</button>
+  
+    <br>
+    <div class="row">
+  
+      <div class="col" *ngFor="let project of projects">
+        <div class="card text-center" style="width: 10rem;">
+          <div class="card-header">
+            {{project.projectName}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge badge-pill badge-light"
+                style="color: black; right: 0%;">{{project.projectId}}</span></h5>
+            <p class="card-text">
+              {{project.description}}
+            </p>
+            <p class="card-text">{{project.startDate}}&nbsp;&nbsp;&nbsp;&nbsp;{{project.endDate}}</p>
+  
+            <!-- <a class="btn btn btn-outline-success btn-sm" style="left: 50%;">
+              Total Tasks <span class="badge badge-pill badge-info " style="color: black; ">{{project.taskcount}}</span>
+            </a> -->
+  
+          </div>
+          <div class="card-footer text-muted">
+  
+            <button type="button" class="btn btn-primary btn-sm" (click)="clickGetTasksOfProject(project.projectId)">View
+              More</button>
+          </div>
+        </div>

@@ -1,0 +1,94 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+   
+    .error {
+      color: red;
+  }
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(220, 186, 19) 50%, rgb(224, 202, 91) 50%,rgb(225, 223, 216) 50% );
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    background-size: contain;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+   
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+   
+  .bg3 {
+    animation-duration:5s;
+  }
+   
+   
+  h1 {
+    font-family:monospace;
+  }
+   
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  .animate-button:active {
+    animation: click-animation 0.3s ease-in-out;
+  }
+   
+  @keyframes click-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+   
+  .btn-warning:active {
+    animation: button-click 0.3s ease-in-out;
+  }
+   
+  @keyframes button-click {
+    0% {
+      background-color: #ffc107;
+      transform: scale(1);
+    }
+    50% {
+      background-color: #e0a800;
+      transform: scale(0.95);
+    }
+    100% {
+      background-color: #ffc107;
+      transform: scale(1);
+    }
+  }
+   
+  .my-4{
+    height: 20%;
+    width: 75%;
+    margin-left: 12.5%;
+  }
+   
+  .readonly-field {
+    background-color: #e9ecef; /* Greyed-out background color */
+    cursor: not-allowed; /* Show the 'not-allowed' cursor to indicate that the field is read-only */
+    color: #6c757d; /* Grey text color for read-only fields */
+  }

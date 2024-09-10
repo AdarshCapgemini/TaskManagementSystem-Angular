@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Task Assigned</h2>
+    <!-- <h4><a type="button" class="btn btn-primary" routerLink="/userProjects">
+      Total Tasks: <span class="badge badge-light">{{count}}</span>
+       <span class="sr-only">count</span> 
+    </a></h4> -->
+    
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th style="text-align: center;">ID</th>
+          <th style="text-align: center;">Name</th>
+          <th style="text-align: center;">Due Date</th>
+          <th style="text-align: center;">Description</th>
+          <th style="text-align: center;">Priority</th>
+          <th style="text-align: center;">Status</th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks"  [ngClass]="{'pending': task.status === 'Pending'}" >
+          <td style="text-align: center;">{{ task.taskId }}</td>
+          <td style="text-align: center;">{{ task.taskName }}</td>
+          <td style="text-align: center;">{{ task.dueDate }}</td>
+          <td style="text-align: center;">{{ task.description }}</td>
+          <td [ngClass]="{
+            'high-priority': task.priority === 'High',
+            'medium-priority': task.priority === 'Medium',
+            'low-priority': task.priority === 'Low'
+          }" style="text-align: center;">{{ task.priority }}</td>
+          <td style="text-align: center;">{{ task.status }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

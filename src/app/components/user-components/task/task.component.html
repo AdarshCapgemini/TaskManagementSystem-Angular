@@ -1,0 +1,73 @@
+<app-header />
+<div class="animated-background"></div>
+<div class="overlay"></div>
+
+  <div class="container">
+    <br>
+    <h2 class="text-center mb-4" style="color: whitesmoke;">Task Assigned</h2>
+    <hr class="my-4" style="color: azure;">
+    <h3>
+      <button type="button" class="btn btn-outline-info" routerLink="/userProjects/{{userId}}">
+        Total Tasks: <span class="badge badge-dark">{{ count }}</span>
+        <!-- {{count}} -->
+      </button>
+    </h3>
+    <h4>
+      <div>
+        <div style="float: left;">
+          <button class="btn btn-outline-primary" (click)="sortTasksByStatus()">Sort by Status</button>&nbsp;
+          <button class="btn btn-outline-primary" (click)="sortTasksByPriority()">Sort by Priority</button>
+        </div>
+        <div class="" style="float: right;">
+          <input class="search-input" type="text" [(ngModel)]="searchQuery" placeholder="Search tasks..."
+            (input)="filterTasks()" /><button type="submit" class="btn btn-search" (click)="filterTasks()"><i
+              class="bi bi-search"></i></button>
+        </div>
+      </div>
+    </h4>
+ 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="text-align: center;">ID</th>
+          <th style="text-align: center;">Name</th>
+          <th style="text-align: center;">Due Date</th>
+          <th style="text-align: center;">Description</th>
+          <th style="text-align: center;">Priority</th>
+          <th style="text-align: center;">Status</th>
+          <th style="text-align: center;">Attachments</th>
+          <th style="text-align: center;">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks" [ngClass]="{ 'pending': task.status === 'Pending' ,
+        'high-priority': task.priority === 'High',
+        'medium-priority': task.priority === 'Medium',
+        'low-priority': task.priority === 'Low'}">
+          <td style="text-align: center;">{{ task.taskId }}</td>
+          <td style="text-align: center;">{{ task.taskName }}</td>
+          <td style="text-align: center;">{{ task.dueDate }}</td>
+          <td style="text-align: center;">{{ task.description }}</td>
+          <td style="text-align: center;">{{ task.priority }}</td>
+          <td style="text-align: center;">{{ task.status }}</td>
+          <td *ngIf="task.countOfAttachment && task.countOfAttachment !== 0; else noAttachments" class="text-center" style="text-align: center;">
+            <button type="button" class="btn btn-outline-dark" routerLink="/attachments/{{ task.taskId }}">
+              {{ task.countOfAttachment }}
+            </button>
+          </td>
+          <td *ngIf=" task.countOfAttachment && task.countOfComment !== undefined; else noComment" class="text-center" style="text-align: center;">
+            <button type="button" class="btn btn-outline-dark" routerLink="/comments/{{ task.taskId }}">
+              {{ task.countOfComment }}
+            </button>
+          </td>
+          <ng-template #noAttachments>
+            <td>No Attachments <button type="button" class="btn btn-info" routerLink="/postAttachments{{task.taskId}}"><i class="bi bi-file-earmark-plus-fill"></i></button></td>
+          </ng-template>
+          <ng-template #noComment>
+            <td>No Comments <button type="button" class="btn btn-info" routerLink="/postComment/{{task.taskId}}"><i class="bi bi-file-earmark-plus-fill"></i></button></td>
+          </ng-template>
+ 
+        </tr>
+      </tbody>
+    </table>
+    </div>

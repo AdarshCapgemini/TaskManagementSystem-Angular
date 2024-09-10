@@ -1,0 +1,56 @@
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content" >
+  <div class="card card-registration my-4" style="width: 60%; height: 75%; margin-left: 20%;" >
+    <div class="row g-0" style="background-image: url('texture.jpg'); ">
+      <div class="col-xl-6 d-flex justify-content-center align-items-center">
+        <img src="logo.png"
+          style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: 400px; width: 380px;" />
+      </div>
+      <div class="col-xl-6">
+        <div class="card-body p-md-3 text-black text-center">
+          <br>
+          <br>
+          <h3 class="mb-3 text-uppercase">User Login</h3>
+          <form [formGroup]="userLoginForm" (ngSubmit)="login()">
+            <div class="row justify-content-center">
+              <div class="col-md-8 mb-2">
+                <div data-mdb-input-init class="form-outline">
+                  <label class="form-label" for="userName">Username</label>
+                  <input type="text" id="userName" class="form-control form-control-sm" formControlName="userName" />
+                  <div class="error"
+                    *ngIf="userLoginForm.get('userName')?.invalid && userLoginForm.get('userName')?.touched">
+                    Username is Required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-8 mb-2">
+                <div data-mdb-input-init class="form-outline">
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password" id="password" class="form-control form-control-sm"
+                    formControlName="password" />
+                  <div class="error"
+                    *ngIf="userLoginForm.get('password')?.invalid && userLoginForm.get('password')?.touched">
+                    Password is Required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                class="btn btn-warning btn-sm ms-2 animate-button" style="width: 200px;">Login</button>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center pt-2">
+            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-sm ms-2"
+              style="width: 200px;" (click)="navigateToRegister()">Not an Existing User? Register Here</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </body> -->

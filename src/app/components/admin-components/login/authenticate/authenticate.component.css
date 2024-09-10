@@ -1,0 +1,90 @@
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+.bg {
+    animation: slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, rgb(0, 123, 255) 50%, rgb(70, 130, 180) 50%, rgb(173, 216, 230) 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    background-size: contain;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 4s;
+    background-image: linear-gradient(-60deg, rgb(0, 170, 255) 50%, rgb(100, 149, 237) 50%, rgb(173, 216, 230) 50%);
+}
+
+.bg3 {
+    animation-duration: 5s;
+    background-image: linear-gradient(-60deg, rgb(0, 91, 171) 50%, rgb(30, 144, 255) 50%, rgb(173, 216, 230) 50%);
+}
+
+h1 {
+    font-family: monospace;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+.animate-button:active {
+    animation: click-animation 0.3s ease-in-out;
+}
+
+@keyframes click-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-warning:active {
+    animation: button-click 0.3s ease-in-out;
+}
+
+@keyframes button-click {
+    0% {
+        background-color: #ffc107;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #e0a800;
+        transform: scale(0.95);
+    }
+    100% {
+        background-color: #ffc107;
+        transform: scale(1);
+    }
+}
+
+.my-4 {
+    margin-top: 10% !important;
+    margin-bottom: 20% !important;
+}
+
+.error {
+    color: red;
+}

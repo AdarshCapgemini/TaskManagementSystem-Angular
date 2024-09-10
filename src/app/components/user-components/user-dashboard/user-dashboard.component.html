@@ -1,0 +1,112 @@
+<app-header/>
+<div style="background-image: url('bg2.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">  
+  <div class="container-fluid">
+    <div class="container"  style="background-image: url('bg1.jpg'); background-size: cover; ">
+      <app-user></app-user>
+    </div>
+    <br>
+    <div class="col custom-col-hight">
+
+      <div class="row">
+
+        <div class="col mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="card" style="background-color: rgba(5, 107, 133, 0.58);">
+                      <div class="p-3" style="font-size: larger; font-weight: bolder; color: rgb(0, 0, 0);"
+                        [routerLink]="['/userProjects']">TOTAL PROJECTS {{projectCount}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row gx-5">
+                  <div class="col">
+                    <br>
+                    <div class="card" style="background-color: rgb(5, 107, 133, 0.58);">
+                      <div class="p-3" style="font-size: larger; font-weight: bolder; color: rgb(0, 0, 0);"
+                        [routerLink]="['/tasks']">TOTAL TASKS {{TaskCount}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="container px-4 text-center">
+                <div class="row gx-5">
+                  <div class="card-body">
+                    <div style="color: rgb(7, 183, 30); font-size: medium; font-weight: bold;">Task Completed</div>
+
+                    <div class="progress">
+                      <div class="progress-bar bg-success" role="progressbar"
+                        [style.width.%]="(completedTaskCount / TaskCount) * 100"
+                        [attr.aria-valuenow]="(completedTaskCount / TaskCount) * 100" aria-valuemin="0"
+                        aria-valuemax="100">
+                        {{ (completedTaskCount / TaskCount) * 100 | number: '1.0-0' }}%
+                      </div>
+                    </div>
+                    <br>
+                    <div style="color: red; font-size: medium; font-weight: bold; ">Overdue Tasks</div>
+
+                    <div class="progress">
+                      <li class="progress-bar bg-danger" role="progressbar"
+                        [style.width.%]="(overdueTaskCount / TaskCount) * 100"
+                        [attr.aria-valuenow]="(completedTaskCount / TaskCount) * 100" aria-valuemin="0"
+                        aria-valuemax="100">
+                        {{ (overdueTaskCount / TaskCount) * 100 | number: '1.0-0' }}%
+                      </li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <div class="card">
+            <div class="card-body">
+              <app-dash-board-project></app-dash-board-project>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4 mb-3">
+
+          <div class="card h-100">
+            <div class="card-body">
+              <app-notifications-for-dashboard />
+            </div>
+          </div><br>
+          <!-- <div class="card">
+            <div class="card-body">
+              <br><br><app-attachments-for-dashboard />
+            </div>
+          </div> -->
+
+        </div>
+
+
+        <div class="col-md-8 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <app-dash-board-task />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <app-footer />
+</div>
